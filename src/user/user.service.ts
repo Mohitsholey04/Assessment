@@ -6,6 +6,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
 import { UserRepository } from './repo/user.repository';
 
+
 // Define the UserService and import the necessary modules
 @Injectable()
 export class UserService {
@@ -18,6 +19,8 @@ export class UserService {
     user.firstName = createUserDto.firstName;
     user.lastName = createUserDto.lastName;
     user.age = createUserDto.age;
+    user.username = createUserDto.username;
+    user.password = createUserDto.password;
     return this.userRepository.save(user);      // Save the new user
   }
 
@@ -41,6 +44,8 @@ export class UserService {
     user.firstName = updateUserDto.firstName;
     user.lastName = updateUserDto.lastName;
     user.age = updateUserDto.age;
+    user.username = updateUserDto.username;
+    user.password = updateUserDto.password;
     user.id = id;
     return this.userRepository.save(user);      // Save the updated user
   }

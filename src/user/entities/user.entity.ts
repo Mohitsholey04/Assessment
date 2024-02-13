@@ -16,5 +16,11 @@ export class User {
     lastName: string;
 
     @Column()
+    username: string;
+
+    @Column()
+    password: string;
+
+    @Column()
     age: number;
 }

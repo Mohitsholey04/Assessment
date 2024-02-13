@@ -3,6 +3,8 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
+import { AppController } from './app.controller';
 
 
 // Import the necessary modules and define the AppModule
@@ -27,9 +29,10 @@ import { UserModule } from './user/user.module';
       }),
       inject: [ConfigService],  // inject the ConfigService
     }),
-    UserModule
+    UserModule,
+    AuthModule
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {} 
