@@ -1,12 +1,15 @@
+// import the Necessary Modules and Services
+
 import { Module } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UserController } from './user.controller';
-import { TypeORMError } from 'typeorm';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './entities/user.entity';
+import { UserRepository } from './repo/user.repository';
 
+
+// Define the UserModule and import the necessary modules
 @Module({
-  imports: [TypeOrmModule.forFeature([User])],
+  imports: [TypeOrmModule.forFeature([UserRepository])],
   controllers: [UserController],
   providers: [UserService],
 })
